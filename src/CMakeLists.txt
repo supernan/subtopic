@@ -1,0 +1,6 @@
+FILE(GLOB SOURCE_1 "${PROJECT_ROOT_PATH}/src/*.cpp")
+FILE(GLOB SOURCE_2 "${PROJECT_ROOT_PATH}/thirdparty/src/*.cpp")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g  -fopenmp -Wall -O2")  
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g  -fopenmp -Wall -O2")
+ADD_LIBRARY(subtopic STATIC ${SOURCE_1} ${SOURCE_2} )
+TARGET_LINK_LIBRARIES(subtopic tinyxml ICTCLAS50 glog pthread SimHash Judy)
